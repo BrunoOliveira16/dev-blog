@@ -1,0 +1,32 @@
+@use './variables'
+
+*
+  box-sizing: border-box
+  font-family: 'Montserrat', sans-serif
+
+.container 
+  min-height: 60vh
+  margin-bottom: 5em
+
+body
+  background-color: variables.$bg-color-secondary
+  padding: 0
+  margin: 0
+  font-family: 'Montserrat', sans-serif
+
+input:focus,
+textarea:focus
+  outline: none
+
+a, nav button
+  text-decoration: none
+  font-size: 1.2rem
+  color: variables.$font-color-secondary
+  background-color: transparent
+  border: none
+  cursor: pointer
+  transition: .4s
+
+  &:hover
+    color: variables.$font-color-hover-primary
+

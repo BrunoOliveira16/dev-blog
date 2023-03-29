@@ -1,0 +1,29 @@
+@use '../variables'
+
+.navbar
+    display: flex
+    box-shadow: variables.$box-shadow-primary
+    justify-content: space-between
+    align-items: center
+    padding: .5rem 2rem
+
+    .brand
+        font-size: 1.6rem
+
+        & span
+            font-weight: 900
+            text-transform: uppercase
+    
+    .links-list
+        display: flex
+        list-style: none
+
+        & li
+            margin-right: 1rem
+
+            & a
+                padding: .4em .6em
+
+    #home.active, #about.active
+        background-color: variables.$bg-color-primary
+        color: variables.$font-color-primary
