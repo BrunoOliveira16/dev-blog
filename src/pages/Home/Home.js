@@ -3,12 +3,14 @@ import './Home.sass';
 // Hooks
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useFetchDocument } from '../../hooks/useFetchDocument';
 
 // Components
+import PostDetails from '../../components/PostDetails';
 
 const Home = () => {
   const [querry, setQuerry] = useState("");
-  const [posts] = useState([]);
+  const { documents: posts, loading } = useFetchDocument("posts");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +29,8 @@ const Home = () => {
           <button className='btn btn-dark'>Pesquisar</button>
         </form>
         <div>
-          <h1>Posts...</h1>
+          {loading && <p>Carregando...</p>}
+          {posts && posts.map((post) => <PostDetails key={post.id} post={post} />)}
           {posts && posts.length === 0 && (
             <div className="noposts">
               <p>Não Foram encontrados posts</p>
