@@ -11,9 +11,14 @@ import PostDetails from '../../components/PostDetails';
 const Home = () => {
   const [querry, setQuerry] = useState("");
   const { documents: posts, loading } = useFetchDocument("posts");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(querry) {
+      return navigate(`/search?q=${querry}`)
+    }
   }
 
   return (
@@ -23,7 +28,7 @@ const Home = () => {
           <input 
             type="text" 
             placeholder="Ou busque por tags..." 
-            onChange={(e) => setQuerry(e.targe.value)} 
+            onChange={(e) => setQuerry(e.target.value)} 
             value={querry}
           />
           <button className='btn btn-dark'>Pesquisar</button>
