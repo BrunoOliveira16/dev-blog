@@ -2,7 +2,7 @@ import './search.sass';
 import { Link } from 'react-router-dom';
 
 // Hooks
-import { useFetchDocument } from '../../hooks/useFetchDocument';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useQuery } from '../../hooks/useQuery';
 
 // Components
@@ -11,7 +11,7 @@ import PostDetails from '../../components/PostDetails';
 const Search = () => {
     const query = useQuery();
     const search = query.get("q");
-    const {documents: posts} = useFetchDocument("posts", search);
+    const {documents: posts} = useFetchDocuments("posts", search);
 
     return (
         <div className="search_container">

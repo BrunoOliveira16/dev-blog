@@ -1,5 +1,6 @@
 import './register.sass';
 
+//Hooks
 import { useState, useEffect } from 'react';
 import { useAuthentication } from '../../hooks/useAuthentication';
 

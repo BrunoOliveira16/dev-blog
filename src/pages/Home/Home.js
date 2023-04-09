@@ -3,14 +3,14 @@ import './Home.sass';
 // Hooks
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useFetchDocument } from '../../hooks/useFetchDocument';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 
 // Components
 import PostDetails from '../../components/PostDetails';
 
 const Home = () => {
   const [querry, setQuerry] = useState("");
-  const { documents: posts, loading } = useFetchDocument("posts");
+  const { documents: posts, loading } = useFetchDocuments("posts");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
